@@ -10,7 +10,7 @@ public class Ghost : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        agent.speed = 5.0f;
+        agent.speed = 8.0f;
         if (target == null)
             target = GameObject.FindGameObjectWithTag("Player");
 	}
@@ -19,12 +19,4 @@ public class Ghost : MonoBehaviour {
 	void Update () {
         agent.destination = target.transform.position ;
 	}
-
-    //function to detect when the ghost gets the player
-    public void OnCollisionEnter(Collision collision)
-    {
-
-        if (collision.gameObject.tag == "Player")
-            SceneManager.LoadScene("menu");
-    }
 }
