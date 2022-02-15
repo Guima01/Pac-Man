@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
         if(other.gameObject.tag == "Cheese"){
+            SoundManagerScript.PlaySound("Cheese");
             cheese += 1; 
             Destroy(other.gameObject);
         }
