@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
         controller.Move(move * speed * Time.deltaTime);
 
         if(cheese == 4){
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
         }
 
     }
