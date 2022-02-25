@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Threading;
 
 public class Player : MonoBehaviour
 {
 
     public CharacterController controller;
-    public float speed = 40f;
+    public float speed;
     public int cheese = 0;
+    private float timer = 0.0f;
+    private bool special = false;
+
     void Start()
     {
 
@@ -25,6 +29,10 @@ public class Player : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
         }
 
+        if(RecalculateValue() && special == true){
+            speed = 12f;
+        }
+
     }
 
     private void OnCollisionEnter(Collision other) {
@@ -37,5 +45,21 @@ public class Player : MonoBehaviour
             cheese += 1; 
             Destroy(other.gameObject);
         }
+        if(other.gameObject.tag == "Buff"){
+            timer = 0;
+            special = true;
+            SoundManagerScript.PlaySound("Potion");
+            speed = 60f; 
+            Destroy(other.gameObject);
+        }
+    }
+
+    public bool RecalculateValue()
+    {
+        timer += Time.deltaTime;
+        if(timer >= 7.0f){
+            return true;
+        }
+        return false;
     }
 }

@@ -9,6 +9,7 @@ TagManager:
   - Cheese
   - life
   - CheeseNumber
+  - Buff
   layers:
   - Default
   - TransparentFX
