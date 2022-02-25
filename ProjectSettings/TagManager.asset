@@ -7,6 +7,8 @@ TagManager:
   - Enemy
   - Knife
   - Cheese
+  - life
+  - CheeseNumber
   layers:
   - Default
   - TransparentFX
